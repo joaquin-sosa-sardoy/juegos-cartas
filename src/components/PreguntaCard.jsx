@@ -93,5 +93,131 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
     );
   }
 
-  return null; // En caso de que no haya un tipo válido
+  if (contentType === "Decisiones") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
+    
+        <div className="text-purple-600 text-2xl font-bold mb-4 text-center">
+          DECISIONES
+        </div>
+
+        <div className="text-gray-800 text-lg font-medium leading-snug mb-auto">
+          {challengeText}
+        </div>
+
+        <div className="mt-6 text-sm text-gray-500 italic text-right">
+          Preguntas para tomar decisiones y debatir con el grupo.
+        </div>
+      </div>
+    )
+  }
+
+  if (contentType === "Tincho") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between border-2 border-yellow-400">
+        <div className="text-yellow-600 text-2xl font-bold mb-4 text-center">
+          TEST DE TINCHO
+        </div>
+
+        <div className="text-gray-800 text-xl font-medium leading-snug mb-auto">
+          {question}
+        </div>
+
+        <div className="mt-6 space-y-2 text-sm text-yellow-500 italic text-left">
+          <p>Mientras más puntos, más tincho. Puntos a criterio del grupo.</p>
+          <p>Cheto el nene. De alto estatus socioeconómico el retoño.</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (contentType === "MasProbable") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
+        <div className="text-blue-600 text-2xl font-bold mb-4 text-center">
+          ¿Quién es más probable...
+        </div>
+
+        <div className="text-gray-800 text-xl font-medium leading-snug mb-auto">
+          {question}
+        </div>
+
+        <div className="mt-6 space-y-2 text-sm text-gray-500 italic text-left">
+          <p>El grupo debe decidir quién es el más probable.</p>
+        </div>
+      </div>
+    )
+  }
+
+   if (contentType === "Pollera") {
+  return (
+    <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-pink-50 rounded-2xl shadow-xl p-6 flex flex-col justify-between border-4 border-pink-300">
+      <div className="flex justify-center mb-4">
+        <span className="text-pink-500 text-3xl">♥️</span>
+        <h2 className="text-pink-600 text-2xl font-extrabold mx-2">POLLERA</h2>
+        <span className="text-pink-500 text-3xl">♥️</span>
+      </div>
+
+      <div className="text-pink-800 text-lg font-medium leading-snug mb-auto text-center px-2">
+        {question}
+      </div>
+
+      <div className="mt-6 space-y-1 text-sm text-pink-600 italic text-center">
+        <p>Pollerudo de mierda.</p>
+      </div>
+    </div>
+  )
+}
+
+  if (contentType === "NuncaNunca") {
+  return (
+    <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
+   
+      <div className="text-red-500 text-2xl font-bold mb-4 text-center">
+        YO NUNCA NUNCA
+      </div>
+
+      <div className="text-black text-xl font-medium leading-snug mb-auto text-center px-2">
+        {challengeText}
+      </div>
+
+      <div className="mt-6 space-y-1 text-sm text-slate-500 italic text-center">
+        Conozco tu secreto.. tu sucio sucio secretito. CONOZCO TU SECRETO. TU SUCIO SECRETITO.
+      </div>
+    </div>
+  )
+}
+
+if (contentType === "QuienSoy") {
+  return (
+    <div className="
+      w-[250px] sm:w-[350px] lg:w-[400px]
+      bg-gradient-to-br from-indigo-50 to-white
+      rounded-2xl shadow-2xl
+      p-6 flex flex-col justify-between
+      border-4 border-indigo-300
+    ">
+      <div className="flex items-center justify-center space-x-2 mb-4">
+        <span className="text-indigo-500 text-2xl">👤</span>
+        <h2 className="
+          bg-clip-text text-transparent
+          bg-gradient-to-r from-indigo-600 to-blue-500
+          text-2xl font-extrabold uppercase tracking-wider
+        ">
+          ¿Quién Soy?
+        </h2>
+      </div>
+
+      <div className="flex-grow flex items-center justify-center">
+        <span className="text-gray-800 text-4xl font-extrabold text-center leading-snug">
+          {question}
+        </span>
+      </div>
+
+    </div>
+  )
+}
+
+
+  return null;
 }
