@@ -26,7 +26,7 @@ export default function Juegos() {
 
   const handleLogin = e => {
     e.preventDefault()
-    if (password === 'joamixc') {
+    if (password === 'joamixs') {
       sessionStorage.setItem('loggedIn','true')
       setUnlocked(true)
       setError('')
