@@ -13,7 +13,8 @@ const GAME_MODES = [
   { slug: 'pollera',      label: 'POLLERA',               bg: 'bg-pink-500',                     text: 'text-white' },
   { slug: 'nunca-nunca',  label: 'YO NUNCA NUNCA',        bg: 'bg-pink-800',                     text: 'text-white' },
   { slug: 'quien-soy',    label: 'QUIÉN SOY',             bg: 'bg-emerald-800',                  text: 'text-white' },
-  { slug: '',             label: 'PRÓXIMOS JUEGOS...',    bg: 'bg-zinc-500',                     text: 'text-white' }
+  { slug: 'amigos-de-mierda', label: 'AMIGOS DE MIERDA', bg: 'bg-slate-700',                   text: 'text-white' },
+  { slug: '',             label: 'PRÓXIMOS JUEGOS...',    bg: 'bg-slate-800',                     text: 'text-white' }
 ]
 
 export default function Juegos() {
@@ -83,28 +84,36 @@ export default function Juegos() {
       <main className="flex-grow flex items-center justify-center p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl w-full">
           {GAME_MODES.map(({ slug, label, bg, text }) => (
-            <button
-              key={label}
-              onClick={() => slug && navigate(`/${slug}`)}
-              className={`
-                ${bg} ${text}
-                relative overflow-hidden
-                h-40 sm:h-44
-                flex items-center justify-center
-                rounded-2xl
-                shadow-md
-                transition transform hover:-translate-y-1 hover:shadow-xl
-                focus:outline-none focus:ring-4 focus:ring-indigo-300
-              `}
-            >
-              <span className="text-xl sm:text-2xl font-semibold">{label}</span>
-              {!slug && (
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                  <span className="text-white text-sm uppercase">Próximamente</span>
-                </div>
-              )}
-            </button>
-          ))}
+        <button
+          key={label}
+          onClick={() => slug && navigate(`/${slug}`)}
+          className={`
+            ${bg} ${text}
+            relative overflow-hidden
+            h-40 sm:h-44
+            flex items-center justify-center
+            rounded-2xl
+            shadow-md
+            transition transform hover:-translate-y-1 hover:shadow-xl
+            focus:outline-none focus:ring-4 focus:ring-indigo-300
+          `}
+        >
+          {slug === 'amigos-de-mierda' && (
+            <span className="absolute top-2 left-2 bg-red-500 text-[10px] font-bold text-white px-2 py-1 rounded-full">
+              NUEVO
+            </span>
+          )}
+
+          <span className="text-xl sm:text-2xl font-semibold">{label}</span>
+
+          {!slug && (
+            <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+              <span className="text-white text-sm uppercase">Próximamente</span>
+            </div>
+          )}
+        </button>
+      ))}
+
         </div>
       </main>
 

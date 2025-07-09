@@ -194,7 +194,7 @@ export default function Random() {
           />
           <button
             onClick={handleCountNext}
-            className="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition"
+            className="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-600 transition"
           >
             Siguiente
           </button>
@@ -220,7 +220,7 @@ export default function Random() {
           </div>
           <button
             onClick={handleNamesNext}
-            className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+            className="mt-4 w-full bg-green-700 text-white py-2 rounded-lg hover:bg-blue-600 transition"
           >
             Comenzar Juego
           </button>

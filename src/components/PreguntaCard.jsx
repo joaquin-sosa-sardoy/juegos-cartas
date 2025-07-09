@@ -1,5 +1,5 @@
 export default function PreguntaCard({ contentType, question, challengeText, categories, title }) {
-  if (contentType === "Previa") { //Este contentType es ya dentro de la "carta"
+  if (contentType === "Previa") { 
     return (
       <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
         <div className="text-teal-500 text-2xl font-bold mb-4">
@@ -97,7 +97,7 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
     return (
       <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
     
-        <div className="text-purple-600 text-2xl font-bold mb-4 text-center">
+        <div className="text-cyan-500 text-2xl font-bold mb-4 text-center">
           DECISIONES
         </div>
 
@@ -173,7 +173,7 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
   return (
     <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
    
-      <div className="text-red-500 text-2xl font-bold mb-4 text-center">
+      <div className="text-pink-800 text-2xl font-bold mb-4 text-center">
         YO NUNCA NUNCA
       </div>
 
@@ -217,6 +217,32 @@ if (contentType === "QuienSoy") {
     </div>
   )
 }
+if (contentType === "AmigosDeMierda") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[300px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between mx-auto relative overflow-hidden font-bold">
+
+        <div className="absolute top-0 left-0 h-full w-2 bg-slate-700 rounded-tl-xl rounded-bl-xl"></div>
+
+        <div className="text-center text-slate-700 text-2xl font-semibold mb-2 uppercase tracking-widest">
+          <span className="inline-block transform rotate-1">AMIGOS</span>
+          <br />
+          <span className="inline-block transform -rotate-1">DE MIERDA</span>
+        </div>
+
+        <div className="w-16 h-0.5 border-slate-700 border mx-auto mb-4"></div>
+
+        <div className="flex-grow flex items-center justify-center text-center text-gray-800 text-lg px-4 leading-snug">
+          “{categories?.text}”
+        </div>
+
+        <div className="mt-4 flex items-center justify-end text-sm italic text-slate-700">
+          <span className="mr-2">Forro </span>
+        </div>
+
+        <div className="pointer-events-none absolute inset-0 bg-[url('/textures/subtle-pattern.png')] opacity-5 rounded-xl"></div>
+      </div>
+    );
+  }
 
 
   return null;

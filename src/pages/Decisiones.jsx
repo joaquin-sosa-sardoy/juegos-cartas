@@ -87,7 +87,7 @@ export default function Filosofando() {
           />
           <button
             onClick={handleCountNext}
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+            className="w-full bg-cyan-500 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
           >Siguiente</button>
         </div>
       )}
@@ -113,14 +113,14 @@ export default function Filosofando() {
           </div>
           <button
             onClick={handleNamesNext}
-            className="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+            className="mt-4 w-full bg-cyan-500 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
           >Comenzar</button>
         </div>
       )}
 
       {step === 'play' && (
         <div className="flex flex-col items-center space-y-6 w-full max-w-md">
-          <div className="text-lg font-semibold text-purple-600">
+          <div className="text-lg font-semibold text-cyan-500">
             Jugador: {players[playerIdx]}
           </div>
 

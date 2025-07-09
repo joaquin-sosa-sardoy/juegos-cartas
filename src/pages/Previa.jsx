@@ -7,7 +7,6 @@ export default function Previa() {
   const navigate = useNavigate()
 
   const allChallenges = useMemo(() => ({
-    "Digan conmigo": "A partir de ahora y por 2 rondas decir: 'Ni en pedo' antes de levantar una carta del mazo. El que incumpla la regla toma 2 tragos.",
     "Siamo Fuori": "Hablá con acento italiano por 2 rondas, si te olvidás tenés que tomar 2 tragos.",
     "Hakaaaaaa": "Tenés que preparar con la ayuda de la persona que esté a tu derecha, un auténtico Haka con las poses y cantos. (Google en caso de no saber qué es). Si no lo hacen, deben tomar 5 tragos cada uno.",
     "Cállate, cállate que me desesperas":"Por 1 ronda no podés hablar, si lo hacés debés tomar 5 tragos",

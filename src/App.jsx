@@ -11,6 +11,7 @@ import MasProbable from './pages/MasProbable'
 import Pollera from './pages/Pollera'
 import NuncaNunca from './pages/NuncaNunca'
 import QuienSoy from './pages/QuienSoy'
+import AmigosDeMierda from './pages/AmigosDeMierda'
 
 function ProtectedRoute({ children }) {
   const loggedIn = sessionStorage.getItem('loggedIn') === 'true'
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/pollera"    element={<ProtectedRoute><Pollera   /></ProtectedRoute>} />
         <Route path="/nunca-nunca" element={<ProtectedRoute><NuncaNunca /></ProtectedRoute>} />
         <Route path="/quien-soy"  element={<ProtectedRoute><QuienSoy  /></ProtectedRoute>} />
+        <Route path="/amigos-de-mierda" element={<ProtectedRoute><AmigosDeMierda /></ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/juegos" replace />} />
       </Routes>

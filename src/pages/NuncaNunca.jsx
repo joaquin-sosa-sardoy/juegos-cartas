@@ -54,7 +54,7 @@ export default function NuncaNunca() {
     "...he gastado demasiado en un regalo improvisado.",
     "...he hecho sexting.",
     "...he soñado con alguien que conocí hace poco.",
-    "...me he quedado atascado/a en un ascensor.",
+    "...me he quedado atrapado/a en un ascensor.",
     "...he confesado un amor imposible.",
     "...he chocado mi auto por algún motivo.",
     "...he pasado la noche en un hospital.",
