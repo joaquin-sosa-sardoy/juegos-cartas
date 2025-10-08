@@ -121,7 +121,7 @@ export default function Juegos() {
   <div className="max-w-4xl mx-auto py-4 px-4 flex items-center justify-center space-x-6">
     
     <span className="text-gray-700 text-sm">
-      Seguime en Spotify que tengo Spotify, en Instragram que tengo Instagram y en Twitter que tengo Twitter.
+      Seguime en Spotify que tengo Spotify, en Instagram que tengo Instagram y en Twitter que tengo Twitter.
     </span>
 
     <a
