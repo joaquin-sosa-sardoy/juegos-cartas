@@ -98,12 +98,12 @@ export default function Juegos() {
             focus:outline-none focus:ring-4 focus:ring-indigo-300
           `}
         >
-          {slug === 'amigos-de-mierda' && (
+          {/* {slug === 'amigos-de-mierda' && (
             <span className="absolute top-2 left-2 bg-red-500 text-[10px] font-bold text-white px-2 py-1 rounded-full">
               NUEVO
-            </span>
-          )}
-
+            </span> CODIGO PARA LABEL ROJO DE NUEVO
+          )} */}
+          
           <span className="text-xl sm:text-2xl font-semibold">{label}</span>
 
           {!slug && (
