@@ -9,11 +9,12 @@ const GAME_MODES = [
   { slug: 'random',       label: 'RANDOM',                bg: 'bg-green-700',                    text: 'text-white' },
   { slug: 'decisiones',   label: 'DECISIONES',            bg: 'bg-cyan-500',                     text: 'text-black' },
   { slug: 'tincho',       label: 'TINCHO',                bg: 'bg-amber-400',                    text: 'text-black' },
-  { slug: 'mas-probable', label: 'QUIÉN ES MÁS PROBABLE', bg: 'bg-purple-500',                   text: 'text-white' },
+  { slug: 'mas-probable', label: 'QUIÉN ES MÁS PROBABLE', bg: 'bg-fuchsia-400',                   text: 'text-white' },
   { slug: 'pollera',      label: 'POLLERA',               bg: 'bg-pink-500',                     text: 'text-white' },
   { slug: 'nunca-nunca',  label: 'YO NUNCA NUNCA',        bg: 'bg-pink-800',                     text: 'text-white' },
   { slug: 'quien-soy',    label: 'QUIÉN SOY',             bg: 'bg-emerald-800',                  text: 'text-white' },
   { slug: 'amigos-de-mierda', label: 'AMIGOS DE MIERDA', bg: 'bg-slate-700',                   text: 'text-white' },
+  { slug: 'impostor',      label: 'IMPOSTOR',              bg: 'bg-purple-700',                     text: 'text-white' },
   { slug: '',             label: 'PRÓXIMOS JUEGOS...',    bg: 'bg-slate-800',                     text: 'text-white' }
 ]
 
@@ -98,11 +99,12 @@ export default function Juegos() {
             focus:outline-none focus:ring-4 focus:ring-indigo-300
           `}
         >
-          {/* {slug === 'amigos-de-mierda' && (
+          
+          {slug === 'impostor' && (
             <span className="absolute top-2 left-2 bg-red-500 text-[10px] font-bold text-white px-2 py-1 rounded-full">
               NUEVO
-            </span> CODIGO PARA LABEL ROJO DE NUEVO
-          )} */}
+            </span> /* BLOQUE DE LABEL DE "NUEVO" para IMPOSTOR */
+          )}
           
           <span className="text-xl sm:text-2xl font-semibold">{label}</span>
 
