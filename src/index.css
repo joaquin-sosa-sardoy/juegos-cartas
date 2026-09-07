@@ -1,1 +1,81 @@
 @import "tailwindcss";
+
+/* Poppins ya venía cargada en index.html pero nunca se aplicaba. */
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* ---------- Animaciones del menú ---------- */
+
+/* Flote suave de las cartas del abanico. */
+@keyframes jc-flotar {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+
+/* Entrada de las fichas: como repartir cartas sobre la mesa. */
+@keyframes jc-repartir {
+  from { opacity: 0; transform: translateY(24px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Palos que suben lentamente de fondo. */
+@keyframes jc-derivar {
+  from { transform: translateY(20px) rotate(0deg); }
+  to   { transform: translateY(-160px) rotate(200deg); }
+}
+
+.jc-flota   { animation: jc-flotar 5s ease-in-out infinite; }
+.jc-reparte { animation: jc-repartir 0.55s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+.jc-deriva  { animation: jc-derivar linear infinite; }
+
+
+/* Latido del botón principal. */
+@keyframes jc-pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.55); }
+  70%  { box-shadow: 0 0 0 20px rgba(45, 212, 191, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0); }
+}
+
+/* Entrada escalonada de la portada. */
+@keyframes jc-aparecer {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes jc-titilar {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.25; }
+}
+
+.jc-pulso   { animation: jc-pulso 2.6s ease-out infinite; }
+.jc-aparece { animation: jc-aparecer 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.jc-titila  { animation: jc-titilar 1.8s ease-in-out infinite; }
+
+/* Abanico: cada carta se abre más al pasar el mouse por encima del grupo. */
+.jc-abanico .jc-carta {
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+  transition: transform 0.55s cubic-bezier(0.2, 0.85, 0.25, 1);
+}
+.jc-abanico:hover .jc-carta {
+  transform: translate(var(--xh), var(--yh)) rotate(var(--rh));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jc-flota,
+  .jc-reparte,
+  .jc-deriva,
+  .jc-pulso,
+  .jc-aparece,
+  .jc-titila {
+    animation: none;
+  }
+  .jc-abanico .jc-carta,
+  .jc-abanico:hover .jc-carta {
+    transition: none;
+  }
+}

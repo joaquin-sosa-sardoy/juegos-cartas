@@ -1,4 +1,6 @@
-export default function PreguntaCard({ contentType, question, challengeText, categories, title }) {
+import CartaEspanola, { PALOS_INFO } from './CartaEspanola'
+
+export default function PreguntaCard({ contentType, question, challengeText, categories, title, carta }) {
   if (contentType === "Previa") { 
     return (
       <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
@@ -244,6 +246,32 @@ if (contentType === "AmigosDeMierda") {
     );
   }
 
+
+  if (contentType === "EsUn10Pero") {
+    const info = PALOS_INFO[carta.palo]
+
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-2xl shadow-xl p-5 sm:p-6 flex flex-col justify-between border-4 border-teal-600">
+        <div className="text-center text-teal-700 text-lg sm:text-xl font-extrabold uppercase tracking-widest">
+          Es un 10, pero...
+        </div>
+
+        <div className="flex justify-center my-4">
+          <CartaEspanola
+            palo={carta.palo}
+            numero={carta.numero}
+            className="w-[150px] sm:w-[180px] lg:w-[195px] h-auto drop-shadow-md"
+          />
+        </div>
+
+        <div className="text-center">
+          <p className={`text-xl sm:text-2xl font-extrabold ${info.texto}`}>
+            {carta.numero} de {info.nombre}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return null;
 }

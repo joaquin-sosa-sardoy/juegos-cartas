@@ -2,6 +2,14 @@
 import React, { useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PreguntaCard from '../components/PreguntaCard'
+import ConfigJugadores from '../components/ConfigJugadores'
+
+const ACENTO = {
+  texto: 'text-red-600',
+  barra: 'bg-red-400',
+  boton: 'bg-red-500 hover:bg-red-600',
+  anillo: 'focus:ring-red-400'
+}
 
 export default function Zarpado() {
   const allChallenges = useMemo(() => ({
@@ -113,109 +121,51 @@ export default function Zarpado() {
     [allChallenges]
   )
 
-  const [step, setStep] = useState('count') 
-  const [count, setCount] = useState(1)
-  const [names, setNames] = useState([])
+  const [step, setStep] = useState('config') 
   const [players, setPlayers] = useState([])
   const [playerIdx, setPlayerIdx] = useState(0)
   const [qIdx, setQIdx] = useState(0)
 
   const navigate = useNavigate()
 
-  const handleCountNext = () => {
-    if (count >= 1 && count <= 50) {
-      setNames(Array(count).fill(''))
-      setStep('names')
-    }
-  }
-
-  const handleNameChange = (i, v) => {
-    const copy = [...names]
-    copy[i] = v
-    setNames(copy)
-  }
-
-  const handleNamesNext = () => {
-    if (names.every(n => n.trim())) {
-      setPlayers(names)
-      setStep('play')
-    }
+  const iniciar = jugadores => {
+    setPlayers(jugadores)
+    setPlayerIdx(0)
+    setStep('play')
   }
 
   const nextQuestion = () => {
     if (qIdx < challenges.length - 1) {
       setQIdx(q => q + 1)
-      setPlayerIdx(p => (p + 1) % players.length)
+      if (players.length) setPlayerIdx(p => (p + 1) % players.length)
     }
   }
 
   const prevQuestion = () => {
     if (qIdx > 0) {
       setQIdx(q => q - 1)
-      setPlayerIdx(p => (p - 1 + players.length) % players.length)
+      if (players.length) setPlayerIdx(p => (p - 1 + players.length) % players.length)
     }
   }
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      {step === 'count' && (
-        <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-sm">
-          <h2 className="text-xl font-bold text-center mb-4">
-            Cantidad de jugadores
-          </h2>
-          <input
-            type="number"
-            min="1" max="50"
-            value={count}
-            onChange={e => setCount(Number(e.target.value))}
-            className="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg
-                       focus:outline-none focus:ring-2 focus:ring-indigo-400
-                       appearance-none"
-            onKeyDown={e => ['e','E','+','-'].includes(e.key) && e.preventDefault()}
-          />
-          <button
-            onClick={handleCountNext}
-            className="w-full bg-red-500 text-white py-2 rounded-lg
-                       hover:bg-red-600 transition"
-          >
-            Siguiente
-          </button>
-        </div>
-      )}
-
-      {step === 'names' && (
-        <div className="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">
-          <h2 className="text-xl font-bold text-center mb-4">
-            Nombres de jugadores
-          </h2>
-          <div className="space-y-3">
-            {names.map((n, i) => (
-              <input
-                key={i}
-                type="text"
-                value={n}
-                onChange={e => handleNameChange(i, e.target.value)}
-                placeholder={`Jugador ${i + 1}`}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg
-                           focus:outline-none focus:ring-2 focus:ring-indigo-400"
-              />
-            ))}
-          </div>
-          <button
-            onClick={handleNamesNext}
-            className="mt-4 w-full bg-red-500 text-white py-2 rounded-lg
-                       hover:bg-red-600 transition"
-          >
-            Comenzar Juego
-          </button>
-        </div>
+      {step === 'config' && (
+        <ConfigJugadores
+          titulo="ZARPADO"
+          acento={ACENTO}
+          onIniciar={iniciar}
+          onVolver={() => navigate('/juegos')}
+        />
       )}
 
       {step === 'play' && (
         <div className="flex flex-col items-center space-y-6 w-full max-w-md">
-          <div className="text-lg font-semibold text-red-500">
-            Jugador: {players[playerIdx]}
-          </div>
+          {players.length > 0 && (
+            <div className="text-lg font-semibold text-red-500">
+              Jugador: {players[playerIdx]}
+            </div>
+          )}
 
           <PreguntaCard
             contentType="Zarpado"

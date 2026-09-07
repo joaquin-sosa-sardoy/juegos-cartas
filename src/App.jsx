@@ -1,5 +1,5 @@
-
-import { HashRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import Landing from './pages/Landing'
 import Juegos from './pages/Juegos'
 import Random from './pages/Random'
 import Zarpado from './pages/Zarpado'
@@ -13,35 +13,30 @@ import NuncaNunca from './pages/NuncaNunca'
 import QuienSoy from './pages/QuienSoy'
 import AmigosDeMierda from './pages/AmigosDeMierda'
 import Impostor from './pages/Impostor'
-
-function ProtectedRoute({ children }) {
-  const loggedIn = sessionStorage.getItem('loggedIn') === 'true'
-  return loggedIn
-    ? children
-    : <Navigate to="/" replace />
-}
+import EsUn10Pero from './pages/EsUn10Pero'
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/juegos" replace />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/juegos" element={<Juegos />} />
 
-        <Route path="/random" element={<ProtectedRoute><Random /></ProtectedRoute> }/>
-        <Route path="/zarpado" element={<ProtectedRoute><Zarpado /></ProtectedRoute>} />
-        <Route path="/mimica"   element={<ProtectedRoute><Mimica   /></ProtectedRoute>} />
-        <Route path="/previa"   element={<ProtectedRoute><Previa   /></ProtectedRoute>} />
-        <Route path="/decisiones" element={<ProtectedRoute><Decisiones /></ProtectedRoute>} />
-        <Route path="/tincho"     element={<ProtectedRoute><Tincho    /></ProtectedRoute>} />
-        <Route path="/mas-probable" element={<ProtectedRoute><MasProbable /></ProtectedRoute>} />
-        <Route path="/pollera"    element={<ProtectedRoute><Pollera   /></ProtectedRoute>} />
-        <Route path="/nunca-nunca" element={<ProtectedRoute><NuncaNunca /></ProtectedRoute>} />
-        <Route path="/quien-soy"  element={<ProtectedRoute><QuienSoy  /></ProtectedRoute>} />
-        <Route path="/amigos-de-mierda" element={<ProtectedRoute><AmigosDeMierda /></ProtectedRoute>} />
-        <Route path="/impostor" element={<ProtectedRoute><Impostor /></ProtectedRoute>} />
+        <Route path="/random" element={<Random />} />
+        <Route path="/zarpado" element={<Zarpado />} />
+        <Route path="/mimica" element={<Mimica />} />
+        <Route path="/previa" element={<Previa />} />
+        <Route path="/decisiones" element={<Decisiones />} />
+        <Route path="/tincho" element={<Tincho />} />
+        <Route path="/mas-probable" element={<MasProbable />} />
+        <Route path="/pollera" element={<Pollera />} />
+        <Route path="/nunca-nunca" element={<NuncaNunca />} />
+        <Route path="/quien-soy" element={<QuienSoy />} />
+        <Route path="/amigos-de-mierda" element={<AmigosDeMierda />} />
+        <Route path="/impostor" element={<Impostor />} />
+        <Route path="/esun10pero" element={<EsUn10Pero />} />
 
-        <Route path="*" element={<Navigate to="/juegos" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   )
