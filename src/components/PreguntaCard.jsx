@@ -1,4 +1,6 @@
 import CartaEspanola, { PALOS_INFO } from './CartaEspanola'
+import AnilloDeNovio from './AnilloDeNovio'
+import AlceDeEx from './AlceDeEx'
 
 export default function PreguntaCard({ contentType, question, challengeText, categories, title, carta }) {
   if (contentType === "Previa") { 
@@ -268,6 +270,81 @@ if (contentType === "AmigosDeMierda") {
           <p className={`text-xl sm:text-2xl font-extrabold ${info.texto}`}>
             {carta.numero} de {info.nombre}
           </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (contentType === "TagDelNovio") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-rose-50 rounded-2xl shadow-xl p-6 flex flex-col justify-between border-4 border-rose-300">
+
+        {/* ANILLO (ver AnilloDeNovio.jsx) */}
+        <div className="flex justify-center">
+          <AnilloDeNovio className="w-14 h-14 sm:w-16 sm:h-16" />
+        </div>
+
+        <div className="mt-3 text-center text-rose-600 text-xl sm:text-2xl font-extrabold uppercase tracking-wide">
+          Tag del Novio
+        </div>
+        <div className="text-center text-rose-400 text-xs font-semibold uppercase tracking-[0.2em]">
+          o de la pareja
+        </div>
+
+        <div className="mt-6 mb-auto text-center text-rose-900 text-lg sm:text-xl font-medium leading-snug px-1">
+          {question}
+        </div>
+
+        <div className="mt-6 pt-3 border-t border-rose-200 text-center text-sm text-rose-500 italic">
+          <p>Se lee y se responde ahí nomás. Sin pensarlo mucho.</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (contentType === "TagDelEx") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between border-4 border-amber-800">
+        <div className="text-center text-amber-800 text-xl sm:text-2xl font-extrabold uppercase tracking-wide">
+          Tag del Ex
+        </div>
+        <div className="text-center text-amber-600 text-xs font-semibold uppercase tracking-[0.2em]">
+          Frente al grupo
+        </div>
+
+        <div className="mt-6 mb-auto text-center text-gray-900 text-lg sm:text-xl font-medium leading-snug px-1">
+          {question}
+        </div>
+
+        <div className="mt-6 pt-4 border-t border-amber-200 text-center">
+          {/* ALCE (ver AlceDeEx.jsx) */}
+          <div className="flex justify-center">
+            <AlceDeEx className="w-16 sm:w-20 h-auto" />
+          </div>
+
+          <p className="mt-2 text-sm text-amber-700 italic">
+            Se responde en voz alta. Sin editar la historia.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  if (contentType === "EsUn10PeroFrases") {
+    return (
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-2xl shadow-xl p-6 flex flex-col justify-between border-4 border-teal-600">
+        <div className="text-center text-teal-700 text-lg sm:text-xl font-extrabold uppercase tracking-widest">
+          Es un 10, pero...
+        </div>
+
+        <div className="my-6 flex-grow flex items-center justify-center">
+          <p className="text-center text-gray-900 text-xl sm:text-2xl font-bold leading-snug">
+            {question}
+          </p>
+        </div>
+
+        <div className="pt-3 border-t border-gray-200 text-center text-sm text-teal-700 italic">
+          <p>Con frases ya escritas.</p>
         </div>
       </div>
     )

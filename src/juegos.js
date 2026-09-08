@@ -12,7 +12,10 @@ export const GAME_MODES = [
   { slug: 'quien-soy',    label: 'QUIÉN SOY',             icono: '🕵️', bg: 'bg-emerald-800',   text: 'text-white', chip: 'bg-emerald-800 text-white' },
   { slug: 'amigos-de-mierda', label: 'AMIGOS DE MIERDA',  icono: '😈', bg: 'bg-slate-700',     text: 'text-white', chip: 'bg-slate-700 text-white' },
   { slug: 'impostor',     label: 'IMPOSTOR',              icono: '🫥', bg: 'bg-purple-700',    text: 'text-white', chip: 'bg-purple-700 text-white' },
-  { slug: 'esun10pero',   label: 'ES UN 10 PERO...',      palo: 'oros', bg: 'bg-teal-700',     text: 'text-white', chip: 'bg-teal-700 text-white', nuevo: true, destacado: true },
+  { slug: 'esun10pero',   label: 'ES UN 10 PERO...',      sublabel: '(SIN FRASES)', palo: 'oros', bg: 'bg-teal-700',  text: 'text-white', chip: 'bg-teal-700 text-white', destacado: true },
+  { slug: 'esun10perofrases', label: 'ES UN 10 PERO...',  sublabel: '(CON FRASES)', palo: 'copas', bg: 'bg-teal-800', text: 'text-white', chip: 'bg-teal-800 text-white', nuevo: true, destacado: true },
+  { slug: 'tag-del-novio', label: 'TAG DEL NOVIO',        icono: '💍', bg: 'bg-rose-600',      text: 'text-white', chip: 'bg-rose-600 text-white', nuevo: true },
+  { slug: 'tag-del-ex',   label: 'TAG DEL EX',            icono: '🦌', bg: 'bg-amber-800',     text: 'text-white', chip: 'bg-amber-800 text-white', nuevo: true },
   { slug: '',             label: 'PRÓXIMOS JUEGOS...',    icono: '❓', bg: 'bg-slate-800',     text: 'text-white' }
 ]
 

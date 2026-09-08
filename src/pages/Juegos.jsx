@@ -47,8 +47,8 @@ export default function Juegos() {
 
       {/* ---------- Fichas ---------- */}
       <main className="flex-grow bg-slate-50 px-4 pb-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 max-w-5xl w-full mx-auto">
-          {GAME_MODES.map(({ slug, label, icono, palo, bg, text, nuevo, destacado }, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 max-w-5xl w-full mx-auto">
+          {GAME_MODES.map(({ slug, label, sublabel, icono, palo, bg, text, nuevo, destacado }, i) => (
             <button
               key={label}
               onClick={() => slug && navigate(`/${slug}`)}
@@ -57,7 +57,7 @@ export default function Juegos() {
               className={`
                 jc-reparte group relative overflow-hidden isolate
                 ${bg} ${text}
-                h-full ${destacado ? 'min-h-44 sm:min-h-52 sm:col-span-2' : 'min-h-36 sm:min-h-40'}
+                h-full ${destacado ? 'min-h-44 sm:min-h-52 md:col-span-2' : 'min-h-36 sm:min-h-40'}
                 rounded-2xl shadow-lg
                 flex items-center justify-center text-center px-4
                 transition-all duration-300
@@ -93,8 +93,15 @@ export default function Juegos() {
                 </span>
               )}
 
-              <span className={`relative font-bold leading-tight ${destacado ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
-                {label}
+              <span className="relative flex flex-col items-center leading-tight">
+                <span className={`font-bold ${destacado ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
+                  {label}
+                </span>
+                {sublabel && (
+                  <span className="mt-1 text-xs sm:text-sm font-bold tracking-widest opacity-75">
+                    {sublabel}
+                  </span>
+                )}
               </span>
 
               {slug && (

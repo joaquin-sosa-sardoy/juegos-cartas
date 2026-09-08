@@ -14,6 +14,9 @@ import QuienSoy from './pages/QuienSoy'
 import AmigosDeMierda from './pages/AmigosDeMierda'
 import Impostor from './pages/Impostor'
 import EsUn10Pero from './pages/EsUn10Pero'
+import EsUn10PeroFrases from './pages/EsUn10PeroFrases'
+import TagDelNovio from './pages/TagDelNovio'
+import TagDelEx from './pages/TagDelEx'
 
 export default function App() {
   return (
@@ -35,6 +38,9 @@ export default function App() {
         <Route path="/amigos-de-mierda" element={<AmigosDeMierda />} />
         <Route path="/impostor" element={<Impostor />} />
         <Route path="/esun10pero" element={<EsUn10Pero />} />
+        <Route path="/esun10perofrases" element={<EsUn10PeroFrases />} />
+        <Route path="/tag-del-novio" element={<TagDelNovio />} />
+        <Route path="/tag-del-ex" element={<TagDelEx />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
