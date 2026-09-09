@@ -1,21 +1,30 @@
 import CartaEspanola, { PALOS_INFO } from './CartaEspanola'
 import AnilloDeNovio from './AnilloDeNovio'
+import BrindisPrevia from './BrindisPrevia'
 import AlceDeEx from './AlceDeEx'
+import FuegoZarpado, { LlamaIcono } from './FuegoZarpado'
+import { Mascaras } from './TeatroMimica'
 
 export default function PreguntaCard({ contentType, question, challengeText, categories, title, carta }) {
-  if (contentType === "Previa") { 
+  if (contentType === "Previa") {
     return (
-      <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
-        <div className="text-teal-500 text-2xl font-bold mb-4">
-          {title} 
+      <div className="w-[250px] sm:w-[350px] lg:w-[350px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between relative overflow-hidden border-t-4 border-teal-400">
+
+        {/* BRINDIS (ver BrindisPrevia.jsx) — marca de agua */}
+        <BrindisPrevia className="pointer-events-none absolute -bottom-3 -right-2 w-28 h-28 opacity-[0.06]" />
+
+        <div className="relative text-teal-500 text-2xl font-bold mb-4">
+          {title}
         </div>
 
-        <div className="text-black text-lg font-medium leading-tight mb-auto">
+        <div className="relative text-black text-lg font-medium leading-tight mb-auto">
           {challengeText}
         </div>
 
-        <div className="mt-6 text-black font-bold text-right">
-          PREVIA
+        <div className="relative mt-6 flex items-end justify-between">
+          {/* BRINDIS (ver BrindisPrevia.jsx) — iconito del pie */}
+          <BrindisPrevia className="w-8 h-8 opacity-70" />
+          <span className="text-black font-bold">PREVIA</span>
         </div>
       </div>
     );
@@ -23,20 +32,52 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
 
   if (contentType === "Zarpado") {
     return (
-      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
-        <div className="text-black text-lg font-medium leading-tight mb-auto">
-          {challengeText}
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-gradient-to-b from-zinc-900 via-zinc-900 to-red-950 border-2 border-red-600">
+
+        {/* LLAMAS (ver FuegoZarpado.jsx) — cenefa de arriba */}
+        <div className="relative h-10 shrink-0 bg-black">
+          <FuegoZarpado className="absolute inset-x-0 bottom-0 w-full h-14" />
         </div>
-        
-        <div className="space-y-2">
-          <div className="text-red-500 font-medium">Pregunta</div>
-          <div className="text-black text-lg">{question}</div>
-          
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <p className="text-xs text-gray-500 italic">
-              Cumpliendo la prenda, podés hacerle la pregunta al participante que quieras.
+
+        <div className="relative flex-grow flex flex-col p-5 sm:p-6">
+
+          {/* LLAMAS (ver FuegoZarpado.jsx) — marca de agua */}
+          <LlamaIcono
+            className="pointer-events-none absolute -bottom-6 -right-4 w-40 h-40 opacity-10"
+          />
+
+          <div className="relative text-center">
+            <span className="inline-block rounded-full bg-red-600 px-4 py-1 text-[11px] font-extrabold uppercase tracking-[0.25em] text-white shadow-lg">
+              Prenda
+            </span>
+          </div>
+
+          <p className="relative mt-4 text-white text-base sm:text-lg font-semibold leading-snug text-center">
+            {challengeText}
+          </p>
+
+          <div className="relative my-5 flex items-center gap-3">
+            <span className="h-px flex-grow bg-red-500/40" />
+            <LlamaIcono className="w-4 h-4 opacity-80" />
+            <span className="h-px flex-grow bg-red-500/40" />
+          </div>
+
+          <div className="relative mb-auto">
+            <div className="text-center text-[11px] font-extrabold uppercase tracking-[0.25em] text-red-400">
+              Pregunta
+            </div>
+            <p className="mt-2 text-center text-red-50 text-lg sm:text-xl font-bold leading-snug">
+              {question}
             </p>
-            <div className="text-red-500 font-bold text-right">ZARPADO</div>
+          </div>
+
+          <div className="relative mt-6 border-t border-red-500/25 pt-3">
+            <p className="text-[11px] text-zinc-400 italic leading-snug">
+              Si cumplís la prenda, podés hacerle la pregunta al participante que quieras.
+            </p>
+            <div className="mt-1 text-right text-lg font-extrabold tracking-widest text-red-500">
+              ZARPADO
+            </div>
           </div>
         </div>
       </div>
@@ -45,14 +86,24 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
 
   if (contentType === "Mimica") {
     return (
-      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col">
+      <div className="w-[250px] sm:w-[350px] lg:w-[400px] min-h-[400px] bg-white rounded-xl shadow-lg p-6 flex flex-col relative overflow-hidden">
+
+        {/* TEATRO (ver TeatroMimica.jsx) — marca de agua */}
+        <Mascaras
+          className="pointer-events-none absolute -bottom-4 -right-3 w-32 h-32 opacity-[0.07]"
+        />
+
         {/* Header */}
-        <div className="text-blue-600 text-xl font-medium mb-6">
-          Debés hacer la mímica de...
+        <div className="relative flex items-center gap-3 mb-6">
+          {/* TEATRO (ver TeatroMimica.jsx) — máscaras del título */}
+          <Mascaras className="w-12 h-10 shrink-0" />
+          <div className="text-blue-600 text-xl font-medium leading-tight">
+            Tenés que hacer la mímica de...
+          </div>
         </div>
 
         {/* Categories */}
-        <div className="space-y-4 flex-grow">
+        <div className="relative space-y-4 flex-grow">
           {categories.map((category, index) => (
             <div key={index}>
               <div className="text-gray-700 font-medium">{category.label}:</div>
@@ -62,12 +113,12 @@ export default function PreguntaCard({ contentType, question, challengeText, cat
         </div>
 
         {/* Footer text */}
-        <div className="mt-6 text-sm text-gray-600 border-t pt-4">
-          Todos participan. Debés hacer las 4 categorías. Por cada acierto, el que adivinó regala 1 trago.
+        <div className="relative mt-6 text-sm text-gray-600 border-t pt-4">
+          Todos participan donde debés hacer las 4 categorías. Por cada acierto, deciden ustedes el premio/consecuencia.
         </div>
 
         {/* Game name */}
-        <div className="mt-4 text-blue-600 font-bold text-right">
+        <div className="relative mt-4 text-blue-600 font-bold text-right">
           MÍMICA
         </div>
       </div>

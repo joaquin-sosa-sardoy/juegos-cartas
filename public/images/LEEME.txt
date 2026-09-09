@@ -1,0 +1,96 @@
+========================================================================
+  CARPETA DE IMAGENES
+========================================================================
+
+Todo lo que esté en  front/public/  se copia tal cual al sitio publicado,
+SIN pasar por el compilador. Por eso las imágenes van acá y no en src/.
+
+CÓMO SE USA UNA IMAGEN DE ESTA CARPETA
+--------------------------------------
+La app se publica bajo  /juegos-cartas/  (está en vite.config.js), así que
+la ruta siempre arranca así:
+
+  En el HTML:    <img src="/juegos-cartas/images/logo.svg" />
+  En un .jsx:    <img src="/juegos-cartas/images/logo.svg" alt="Mix de Juegos" />
+
+Si algún día cambiás el "base" de vite.config.js, hay que cambiar también
+ese prefijo. Para evitar el problema podés usar:
+
+  <img src={`${import.meta.env.BASE_URL}images/logo.svg`} />
+
+
+QUÉ HAY ACÁ AHORA
+-----------------
+LA IDEA DEL LOGO
+----------------
+Un monograma: la letra M armada con CUATRO CARTAS.
+
+    asta izquierda  -> carta ámbar
+    diagonal        -> carta rosa     }  las dos forman la V del centro
+    diagonal        -> carta teal     }
+    asta derecha    -> carta azul
+
+La letra se lee "M" (de Mix) y al mismo tiempo las piezas se leen como un
+mazo repartido. Los cuatro colores salen de la franja de la app.
+
+
+logo.svg               Logo completo (monograma + "MIX DE JUEGOS").
+                       Horizontal, 780x300. Para encabezados, redes, etc.
+
+icono.svg              Solo el monograma, sin texto. Escala sin perder
+                       nitidez: es el que usa el navegador de favicon moderno.
+
+favicon.ico            El de siempre, con 16/32/48 px adentro. Para
+                       navegadores viejos.
+favicon-16.png         Versiones sueltas por si las necesitás.
+favicon-32.png
+
+apple-touch-icon.png   180x180. Es el que usa el iPhone cuando alguien hace
+                       "Agregar a pantalla de inicio".
+
+icon-192.png           192x192  }
+icon-512.png           512x512  }  Los tres que usa la PWA.
+icon-512-maskable.png  512x512  }  No los borres.
+
+
+YA ESTÁN CONECTADOS
+-------------------
+El favicon y el apple-touch-icon ya están enganchados en  front/index.html.
+Si renombrás un archivo, acordate de actualizar ahí también.
+
+
+SI QUERÉS CAMBIAR EL DISEÑO
+---------------------------
+1. Editá  icono.svg  y  logo.svg  con lo que quieras (Figma, Illustrator,
+   Inkscape, o a mano: son texto plano).
+2. Los PNG hay que volver a exportarlos desde el SVG nuevo, en estos
+   tamaños: 512, 192, 180, 32, 16.
+   Podés usar https://realfavicongenerator.net (subís el SVG y te da todo)
+   o exportarlos desde el mismo programa de diseño.
+3. El .ico se genera con la misma herramienta.
+
+
+LA PWA YA ESTÁ ARMADA
+---------------------
+El manifest se genera solo desde  front/vite.config.js  y apunta a estos
+tres archivos. Si los reemplazás por los tuyos, RESPETÁ LOS NOMBRES:
+
+    icon-192.png            192x192
+    icon-512.png            512x512
+    icon-512-maskable.png   512x512, con el dibujo dentro del 60% central
+
+El "maskable" es el que usa Android en la pantalla de inicio, y le recorta
+los bordes según el modelo de teléfono (círculo, gota, cuadrado redondeado).
+Por eso necesita aire alrededor: si usás el mismo diseño que el normal, te
+va a cortar las puntas.
+
+Para elegir el NOMBRE que aparece debajo del ícono en el celular, editá
+NOMBRE_CORTO en front/vite.config.js (arriba de todo, está señalizado).
+
+
+OTRAS COSAS QUE PODÉS METER ACÁ
+-------------------------------
+  og-image.png      1200x630. Es la imagen que se ve cuando compartís el
+                    link por WhatsApp o Instagram. Vale mucho la pena.
+  captura-1.png     Capturas de pantalla, si algún día vas a alguna tienda.
+  fondo.jpg         Cualquier fondo o textura que quieras usar.

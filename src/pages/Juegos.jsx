@@ -50,7 +50,7 @@ export default function Juegos() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 max-w-5xl w-full mx-auto">
           {GAME_MODES.map(({ slug, label, sublabel, icono, palo, bg, text, nuevo, destacado }, i) => (
             <button
-              key={label}
+              key={slug || label}
               onClick={() => slug && navigate(`/${slug}`)}
               aria-disabled={!slug}
               style={{ animationDelay: `${i * 55}ms` }}

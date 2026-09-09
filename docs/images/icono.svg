@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!--
+    Monograma de MIX DE JUEGOS.
+    La letra M armada con cuatro cartas: las dos astas verticales y la V del
+    centro. Cada carta lleva un color de la paleta de la app, asi la letra
+    dice "M" y las piezas dicen "mazo mezclado" al mismo tiempo.
+  -->
+  <rect width="512" height="512" rx="114" fill="#0f172a"/>
+
+  <g transform="translate(256 268)">
+    <!-- asta izquierda -->
+    <rect x="-221" y="-189" width="118" height="378" rx="20"
+          fill="#f59e0b" stroke="#ffffff" stroke-width="10"/>
+
+    <!-- asta derecha -->
+    <rect x="103" y="-189" width="118" height="378" rx="20"
+          fill="#3b82f6" stroke="#ffffff" stroke-width="10"/>
+
+    <!-- diagonal izquierda de la V -->
+    <g transform="translate(-63 -70) rotate(29)">
+      <rect x="-54" y="-135" width="108" height="270" rx="20"
+            fill="#e11d48" stroke="#ffffff" stroke-width="10"/>
+    </g>
+
+    <!-- diagonal derecha de la V -->
+    <g transform="translate(63 -70) rotate(-29)">
+      <rect x="-54" y="-135" width="108" height="270" rx="20"
+            fill="#14b8a6" stroke="#ffffff" stroke-width="10"/>
+    </g>
+  </g>
+</svg>

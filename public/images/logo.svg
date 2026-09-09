@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 300" width="780" height="300">
+  <!--
+    Logo horizontal de MIX DE JUEGOS: monograma + wordmark.
+    La M esta armada con cuatro cartas (las dos astas y la V del centro),
+    cada una con un color de la paleta de la app.
+  -->
+  <rect width="780" height="300" rx="36" fill="#0f172a"/>
+
+  <!-- monograma -->
+  <g transform="translate(160 158) scale(0.52)">
+    <rect x="-221" y="-189" width="118" height="378" rx="20"
+          fill="#f59e0b" stroke="#ffffff" stroke-width="10"/>
+    <rect x="103" y="-189" width="118" height="378" rx="20"
+          fill="#3b82f6" stroke="#ffffff" stroke-width="10"/>
+    <g transform="translate(-63 -70) rotate(29)">
+      <rect x="-54" y="-135" width="108" height="270" rx="20"
+            fill="#e11d48" stroke="#ffffff" stroke-width="10"/>
+    </g>
+    <g transform="translate(63 -70) rotate(-29)">
+      <rect x="-54" y="-135" width="108" height="270" rx="20"
+            fill="#14b8a6" stroke="#ffffff" stroke-width="10"/>
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="300" y="130" font-family="Poppins, Segoe UI, system-ui, sans-serif"
+        font-size="60" font-weight="800" fill="#ffffff" letter-spacing="-1">MIX DE</text>
+  <text x="300" y="198" font-family="Poppins, Segoe UI, system-ui, sans-serif"
+        font-size="60" font-weight="800" fill="#2dd4bf" letter-spacing="-1">JUEGOS</text>
+
+  <!-- franja de colores de la app -->
+  <g>
+    <rect x="300" y="222" width="32" height="9" rx="4.5" fill="#fbbf24"/>
+    <rect x="338" y="222" width="32" height="9" rx="4.5" fill="#ef4444"/>
+    <rect x="376" y="222" width="32" height="9" rx="4.5" fill="#d946ef"/>
+    <rect x="414" y="222" width="32" height="9" rx="4.5" fill="#14b8a6"/>
+    <rect x="452" y="222" width="32" height="9" rx="4.5" fill="#2563eb"/>
+    <rect x="490" y="222" width="32" height="9" rx="4.5" fill="#22c55e"/>
+  </g>
+</svg>
