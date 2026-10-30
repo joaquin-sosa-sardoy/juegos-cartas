@@ -16,6 +16,8 @@ export const GAME_MODES = [
   { slug: 'esun10perofrases', label: 'ES UN 10 PERO...',  sublabel: '(CON FRASES)', palo: 'copas', bg: 'bg-teal-800', text: 'text-white', chip: 'bg-teal-800 text-white', nuevo: true, destacado: true },
   { slug: 'tag-del-novio', label: 'TAG DEL NOVIO',        icono: '💍', bg: 'bg-rose-600',      text: 'text-white', chip: 'bg-rose-600 text-white', nuevo: true },
   { slug: 'tag-del-ex',   label: 'TAG DEL EX',            icono: '🦌', bg: 'bg-amber-800',     text: 'text-white', chip: 'bg-amber-800 text-white', nuevo: true },
+  { slug: '',      label: 'PROXIMAMENTE: MIGAJERO',               icono: '🥖', bg: 'bg-yellow-600',     text: 'text-white', chip: 'bg-yellow-600 text-white' },
+  { slug: '', label: 'PROXIMAMENTE: A FAVOR / EN CONTRA', icono: '⚔️', bg: 'bg-slate-600',     text: 'text-white', chip: 'bg-slate-600 text-white' },
   { slug: '',             label: 'PRÓXIMOS JUEGOS...',    icono: '❓', bg: 'bg-slate-800',     text: 'text-white' }
 ]
 
